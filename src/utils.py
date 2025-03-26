@@ -40,6 +40,14 @@ def gaussian_linear_beta_schedule(timesteps):
     beta_end = scale * 0.2
     return torch.linspace(beta_start, beta_end, timesteps, dtype=torch.float64)
 
+def gaussian_v2_linear_beta_schedule(timesteps):
+    scale = 1000 / timesteps
+    beta_start = scale * 0.9999
+    beta_end = scale * 0.98
+    return torch.linspace(beta_start, beta_end, timesteps, dtype=torch.float64)
+
+
+
 def cosine_beta_schedule(timesteps, s=0.008):
     """
     cosine schedule
